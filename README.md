@@ -1,6 +1,8 @@
 # Implementing Load Balancing Logic in a Flask Chatbot
-   
-In this blog post, we will dive deep into the load balancing logic implemented in a Flask-based chatbot that utilizes Azure OpenAI's models. Load balancing is crucial for ensuring that our application can handle varying loads effectively and maintain high availability by seamlessly switching between different models based on their performance and availability.  
+
+![](https://clemenssiebler.com/images/fallback_larger_model.png)
+
+In this post, we will dive deep into the load balancing logic implemented in a Flask-based chatbot that utilizes Azure OpenAI's models. Load balancing is crucial for ensuring that our application can handle varying loads effectively and maintain high availability by seamlessly switching between different models based on their performance and availability.  
    
 ## Understanding Load Balancing in Chatbots  
    
@@ -11,7 +13,9 @@ Load balancing in the context of a chatbot refers to the strategy of distributin
 2. **Enhance Availability**: If one model is experiencing issues or is unavailable, the system can automatically switch to another model, ensuring that the chatbot remains operational.  
    
 3. **Optimize Performance**: Different models may perform better for specific queries. Load balancing allows us to utilize the strengths of each model effectively.  
-   
+
+![](azure.png)
+
 ## The Flask Application with Load Balancing Logic  
    
 Let's look at the implementation of a Flask application that incorporates load balancing between Azure OpenAI models. Below is the complete code with detailed explanations of the load balancing logic.  
