@@ -84,3 +84,19 @@ if __name__ == '__main__':
            return jsonify({"chat_completion": chat_completion.choices[0].message.content})  
    ```  
    The core of our load balancing logic lies in this loop. For each request, we attempt to generate a response using each model in the order they
+
+## OUTPUT
+
+```
+127.0.0.1 - - [22/Jan/2025 01:18:22] "GET /?query=testing HTTP/1.1" 200 -
+127.0.0.1 - - [22/Jan/2025 01:18:22] "GET /?query=testing HTTP/1.1" 200 -
+Error with model gpt-4o: Error code: 429 - {'error': {'code': '429', 'message': 'Requests to the ChatCompletions_Create Operation under Azure OpenAI API version 2023-07-01-preview have exceeded token rate limit of your current OpenAI S0 pricing tier. Please retry after 7 seconds. Please go here: https://aka.ms/oai/quotaincrease if you would like to further increase the default rate limit.'}}
+Switching to gpt-35-turbo...
+Error with model gpt-4o: Error code: 429 - {'error': {'code': '429', 'message': 'Requests to the ChatCompletions_Create Operation under Azure OpenAI API version 2023-07-01-preview have exceeded token rate limit of your current OpenAI S0 pricing tier. Please retry after 7 seconds. Please go here: https://aka.ms/oai/quotaincrease if you would like to further increase the default rate limit.'}}
+Switching to gpt-35-turbo...
+127.0.0.1 - - [22/Jan/2025 01:19:01] "GET /?query=testing HTTP/1.1" 200 -
+127.0.0.1 - - [22/Jan/2025 01:19:01] "GET /?query=testing HTTP/1.1" 200 -
+127.0.0.1 - - [22/Jan/2025 01:19:01] "GET /?query=testing HTTP/1.1" 200 -
+127.0.0.1 - - [22/Jan/2025 01:19:01] "GET /?query=testing HTTP/1.1" 200 -
+
+```
